@@ -1,0 +1,56 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+  <!-- Logo -->
+  <div class="mb-8 animate-bounce">
+    <img src="chess-logo.png" alt="Chess Logo" class="w-28 h-28" />
+  </div>
+
+  <!-- Login Card -->
+  <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md animate-fadeIn">
+    <h2 class="text-2xl font-bold mb-6 text-center">Sign In</h2>
+
+    <form (ngSubmit)="login()" class="flex flex-col gap-4">
+      <!-- Username -->
+      <div class="relative">
+        <mat-icon class="absolute left-3 top-2 text-gray-400">person</mat-icon>
+        <input
+  type="text"
+  [(ngModel)]="username"
+  name="username"
+  placeholder="Username"
+  required
+  class="pl-10 pr-3 py-2 w-full rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+      </div>
+
+      <!-- Password -->
+     <input
+  type="password"
+  [(ngModel)]="password"
+  name="password"
+  placeholder="Password"
+  required
+  class="pl-10 pr-3 py-2 w-full rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage()" class="text-red-500 text-sm text-center">
+        {{ errorMessage() }}
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 font-bold py-2 px-4 rounded text-white flex items-center justify-center gap-2"
+      >
+        <mat-icon>login</mat-icon>
+        Sign In
+      </button>
+
+      <!-- Link to register -->
+      <p class="text-gray-400 text-sm text-center mt-4">
+        Don't have an account? 
+        <a routerLink="/auth/register" class="text-blue-500 hover:underline">Register</a>
+      </p>
+    </form>
+  </div>
+</div>

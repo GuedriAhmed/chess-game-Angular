@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<!-- Hero Section -->
+<section class="bg-gray-900 min-h-screen flex flex-col items-center justify-center text-white">
+  <!-- Logo -->
+  <div class="mb-8 animate-bounce">
+    <img src="chess-logo.png" alt="Chess Logo" class="w-50 h-50"/>
+  </div>
+
+  <!-- Title -->
+  <h1 class="text-5xl font-bold mb-4 text-center">Welcome to ChessApp</h1>
+  <p class="text-gray-400 mb-8 text-center">Challenge players online and improve your skills!</p>
+
+  <!-- Buttons -->
+  <div class="flex space-x-6">
+    <button   [routerLink]="['/auth']"  class="bg-purple-600 hover:bg-purple-700 transition-colors duration-300 px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+      <span class="material-icons">play_arrow</span>
+      <span>Play Now</span>
+    </button>
+    <button  [routerLink]="['/auth']" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+      <span class="material-icons">group</span>
+      <span>Join Game</span>
+    </button>
+    <button class="bg-green-600 hover:bg-green-700 transition-colors duration-300 px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2">
+      <span class="material-icons">leaderboard</span>
+      <span>Leaderboard</span>
+    </button>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="bg-gray-800 py-16">
+  <div class="max-w-6xl mx-auto text-white grid md:grid-cols-3 gap-8 px-4">
+    <div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-center">
+      <span class="material-icons text-5xl mb-4">emoji_events</span>
+      <h3 class="text-xl font-bold mb-2">Ranked Matches</h3>
+      <p>Compete and climb the leaderboard!</p>
+    </div>
+    <div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-center">
+      <span class="material-icons text-5xl mb-4">group</span>
+      <h3 class="text-xl font-bold mb-2">Online Players</h3>
+      <p>Invite friends and play live games.</p>
+    </div>
+    <div class="bg-gray-700 p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 text-center">
+      <span class="material-icons text-5xl mb-4">history</span>
+      <h3 class="text-xl font-bold mb-2">Game History</h3>
+      <p>Track every move of your games.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 text-center py-6">
+  &copy; 2025 ChessApp. All rights reserved.
+</footer>

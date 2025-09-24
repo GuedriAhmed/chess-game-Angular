@@ -1,0 +1,65 @@
+<div class="flex items-center justify-between p-6 bg-gray-900 text-white min-h-screen">
+  <!-- Exit Button -->
+  <div class="w-48 flex justify-start">
+    <button (click)="confirmExit()"
+            class="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg shadow-lg transition">
+      Exit Game
+    </button>
+  </div>
+
+  <!-- Chess Board -->
+  <div class="flex justify-center flex-1">
+    <div class="grid grid-cols-8 grid-rows-8 border-8 border-gray-700 shadow-2xl rounded-xl"
+         style="width: 80vh; height: 80vh;">
+      <ng-container *ngFor="let r of rows; let row = index">
+        <ng-container *ngFor="let c of cols; let col = index">
+          <div
+            class="flex items-center justify-center text-4xl font-bold relative"
+            [ngClass]="isDarkSquare(row,col) ? 'bg-gray-700' : 'bg-gray-200 text-black'"
+            (cdkDropListDropped)="drop($event,row,col)"
+            cdkDropList>
+            
+            <!-- Piece -->
+            <div *ngIf="getPiece(row,col)"
+                 cdkDrag
+                 [cdkDragData]="{row: row, col: col}"
+                 class="cursor-grab active:cursor-grabbing">
+              {{ getPiece(row,col) }}
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="flex flex-col gap-6 w-72">
+    <!-- Players Info -->
+    <div class="bg-gray-800 p-5 rounded-xl shadow-lg">
+      <h2 class="text-lg font-semibold mb-3">Players</h2>
+      <div class="flex justify-between items-center mb-2">
+        <span>Player 1</span>
+        <span class="font-bold text-2xl">♔</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span>Player 2</span>
+        <span class="font-bold text-2xl">♚</span>
+      </div>
+    </div>
+
+    <!-- Online Players -->
+    <div class="bg-gray-800 p-5 rounded-xl shadow-lg">
+      <h2 class="text-lg font-semibold mb-3">Online Players</h2>
+      <input type="text"
+             [(ngModel)]="searchTerm"
+             placeholder="Search players..."
+             class="w-full mb-4 px-3 py-2 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-green-500"/>
+      <ul class="space-y-2 max-h-64 overflow-y-auto">
+        <li *ngFor="let player of filteredPlayers" class="flex justify-between items-center">
+          <span>{{ player }}</span>
+          <button class="px-2 py-1 text-sm bg-green-600 rounded hover:bg-green-500">Invite</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
