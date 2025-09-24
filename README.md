@@ -17,12 +17,13 @@ template made from scratch
 ## Features
 
 - **Real-time online players list** using WebSockets.
+- WebSocket communication for live updates.
+  <img width="1913" height="908" alt="Capture d'écran 2025-09-24 181008" src="https://github.com/user-attachments/assets/e4fe3787-bac2-48f8-811c-26d0baae8197" />
 - **Chess board** with drag-and-drop piece movement.
 - **AuthGuard** to protect routes for authenticated users.
 - **Login & Register** functionality connected to Spring Boot backend.
 - Responsive **UI** built with Tailwind CSS.
-- Added the authGard
-- WebSocket communication for live updates.
+
 
 ---
 
